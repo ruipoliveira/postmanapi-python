@@ -28,7 +28,6 @@ class Collections:
 	def post_create(self, data):
 		url = self.apiUrl +'/collections/'
 		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
-
 		response = requests.post(url,headers=headers, data=data)
 		return response.json()
 
@@ -37,8 +36,10 @@ class Collections:
 		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
 		response = requests.put(url,headers=headers, data=data)
 
-	def del_delete(self):
-		pass
+	def del_delete(self, collection_uid):
+		url = self.apiUrl +'/collections/'+collection_uid
+		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
+		response = requests.delete(url,headers=headers)
 
 class Environments:
 	def __init__(self, key):
@@ -136,23 +137,13 @@ class Workspaces:
 	def del_delete(self):
 		pass
 
-
 class User:
 	def __init__(self, key):
 		self.key = key
 		self.apiUrl = 'https://api.getpostman.com'
 
-	def get_all(self):
-		pass
-
-	def get_single(self):
-		pass
-
-	def post_create(self, name, urlApi):
-		pass
-
-	def put_update(self):
-		pass
-
-	def del_delete(self):
-		pass
+	def get_api_key_owner(self):
+		url = self.apiUrl +'/me'
+		headers ={'X-Api-Key': self.key}
+		response = requests.get(url,headers=headers)
+		return response.json()
