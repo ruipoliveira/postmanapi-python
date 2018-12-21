@@ -21,24 +21,27 @@ def main(argv):
 	# environments
 	print("Testing environments...")
 	env = Environments(KEY)
+	print (env.get_all())
 
 	# mocks
 	print("Testing mocks...")
-	env = Mocks(KEY)
+	mocks = Mocks(KEY)
+	print (mocks.get_all())
 
 	# monitors
 	print("Testing monitors...")
-	env = Monitors(KEY)
+	monit = Monitors(KEY)
+	print (monit.get_all())
 
 	# workspaces
 	print("Testing workspaces...")
-	env = Workspaces(KEY)
+	works = Workspaces(KEY)
+	print (works.get_all())
 
 	# user
 	print("Testing users...")
 	user = User(KEY)
 	print(user.get_api_key_owner())
-
 
 if __name__ == "__main__":
     main(sys.argv)

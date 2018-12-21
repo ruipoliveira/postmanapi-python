@@ -73,8 +73,10 @@ class Environments:
 	def put_update(self):
 		pass
 
-	def del_delete(self):
-		pass
+	def del_delete(self,environments_uid):
+		url = self.apiUrl +'/environments/'+environments_uid
+		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
+		response = requests.delete(url,headers=headers)
 
 class Mocks:
 	def __init__(self, key):
@@ -82,10 +84,16 @@ class Mocks:
 		self.apiUrl = 'https://api.getpostman.com'
 
 	def get_all(self):
-		pass
+		url = self.apiUrl +'/mocks'
+		headers ={'X-Api-Key': self.key}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
-	def get_single(self):
-		pass
+	def get_single(self, mocks_uid):
+		url = self.apiUrl +'/mocks/'+mocks_uid
+		headers ={'X-Api-Key': str(self.key)}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
 	def post_create(self, name, urlApi):
 		pass
@@ -93,8 +101,10 @@ class Mocks:
 	def put_update(self):
 		pass
 
-	def del_delete(self):
-		pass
+	def del_delete(self,mocks_uid):
+		url = self.apiUrl +'/mocks/'+mocks_uid
+		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
+		response = requests.delete(url,headers=headers)
 
 class Monitors:
 	def __init__(self, key):
@@ -102,10 +112,16 @@ class Monitors:
 		self.apiUrl = 'https://api.getpostman.com'
 
 	def get_all(self):
-		pass
+		url = self.apiUrl +'/monitors'
+		headers ={'X-Api-Key': self.key}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
-	def get_single(self):
-		pass
+	def get_single(self, monitors_uid):
+		url = self.apiUrl +'/monitors/'+monitors_uid
+		headers ={'X-Api-Key': str(self.key)}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
 	def post_create(self, name, urlApi):
 		pass
@@ -113,8 +129,10 @@ class Monitors:
 	def put_update(self):
 		pass
 
-	def del_delete(self):
-		pass
+	def del_delete(self,monitors_uid):
+		url = self.apiUrl +'/monitors/'+monitors_uid
+		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
+		response = requests.delete(url,headers=headers)
 
 
 class Workspaces:
@@ -123,10 +141,16 @@ class Workspaces:
 		self.apiUrl = 'https://api.getpostman.com'
 
 	def get_all(self):
-		pass
+		url = self.apiUrl +'/workspaces'
+		headers ={'X-Api-Key': self.key}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
-	def get_single(self):
-		pass
+	def get_single(self, workspaces_uid):
+		url = self.apiUrl +'/workspaces/'+workspaces_uid
+		headers ={'X-Api-Key': str(self.key)}
+		response = requests.get(url,headers=headers)
+		return response.json()
 
 	def post_create(self, name, urlApi):
 		pass
@@ -134,8 +158,10 @@ class Workspaces:
 	def put_update(self):
 		pass
 
-	def del_delete(self):
-		pass
+	def del_delete(self,workspaces_uid):
+		url = self.apiUrl +'/workspaces/'+workspaces_uid
+		headers ={'X-Api-Key': str(self.key), 'Content-Type': 'application/json'}
+		response = requests.delete(url,headers=headers)
 
 class User:
 	def __init__(self, key):
