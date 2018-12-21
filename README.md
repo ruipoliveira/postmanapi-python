@@ -15,9 +15,10 @@ This module in python allows the interaction with Postman API rest, abstracting 
 
 You can use the Postman Python client library to interact with Postman API. Follow the instructions on this page to get started.
 
-### Prerequisites
+### Requirements
 
 * python3 
+* requests (module)
 * Postman account with KEY access API 
 
 ### Using module  
